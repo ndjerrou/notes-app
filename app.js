@@ -1,4 +1,5 @@
 const _ = require("yargs");
+const notes = require("./notes");
 
 _.version("1.1.0");
 
@@ -18,8 +19,7 @@ _.command({
     },
   },
   handler: ({ title, body }) => {
-    console.log(`Title : ${title} \n Body : ${body}
-    `);
+    notes.addNotes(title, body);
   },
 });
 
