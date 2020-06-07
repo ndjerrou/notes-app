@@ -1,4 +1,5 @@
 const _ = require("yargs");
+const chalk = require("chalk");
 const notes = require("./notes");
 
 _.version("1.1.0");
@@ -26,8 +27,21 @@ _.command({
 _.command({
   command: "remove",
   describe: "Removing an existing note",
-  handler: () => {
-    console.log("Removing note...");
+  builder: {
+    title: {
+      describe: "Note's title",
+      type: "string",
+      demandOption: true,
+    },
+  },
+  handler: ({ title }) => {
+    const result = notes.removeNotes(title);
+
+    if (!result) {
+      console.log(chalk.red.inverse("No note found"));
+      return;
+    }
+    console.log(chalk.green.inverse("Note removed!"));
   },
 });
 

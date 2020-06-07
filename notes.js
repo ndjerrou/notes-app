@@ -1,15 +1,35 @@
 const fs = require("fs");
 const getNotes = () => "Your notes...";
 
+const removeNotes = (title) => {
+  const notes = loadNotes();
+
+  const remainingNotes = notes.filter((n) => n.title !== title);
+
+  saveNotes(remainingNotes);
+
+  if (remainingNotes.length === notes.length) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
 const addNotes = (title, body) => {
   const notes = loadNotes();
 
-  notes.push({
-    title,
-    body,
-  });
+  const existingNote = notes.find((n) => n.title === title);
 
-  saveNotes(notes);
+  if (!existingNote) {
+    notes.push({
+      title,
+      body,
+    });
+
+    saveNotes(notes);
+    return;
+  }
+  console.log("Note's title taen!");
 };
 
 const loadNotes = () => {
@@ -30,4 +50,5 @@ const saveNotes = (notes) => {
 module.exports = {
   getNotes,
   addNotes,
+  removeNotes,
 };
