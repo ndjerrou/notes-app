@@ -17,7 +17,7 @@ You have here a small tool (inline command) that you can use to store your favou
   - add (title and body flags mandatory)
   - remove (title flag mandatory)
   
- Example : node app.js add --title="Cook dinner" --body="Buy pasta to supermarket"
+ Example : `node app.js add --title="Cook dinner" --body="Buy pasta to supermarket"`
   
  4. if you need some help, you can launch the following command `node app.js --help`.
  
