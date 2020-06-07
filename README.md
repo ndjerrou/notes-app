@@ -12,10 +12,12 @@ You have here a small tool (inline command) that you can use to store your favou
 2. Use `npm i` to install the dependencies
 3. Use one the following commands to play : 
 
-  - read
-  - list
-  - add (start by adding a note)
-  - remove
+  - read (title flag mandatory)
+  - list 
+  - add (title and body flags mandatory)
+  - remove (title flag mandatory)
+  
+ Example : node app.js add --title="Cook dinner" --body="Buy pasta to supermarket"
   
  4. if you need some help, you can launch the following command `node app.js --help`.
  
