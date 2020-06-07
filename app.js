@@ -48,8 +48,19 @@ _.command({
 _.command({
   command: "read",
   describe: "Reading an existing note",
-  handler: () => {
-    console.log("Reading a note");
+  builder: {
+    title: {
+      describe: "Note's title",
+      demandOption: true,
+      type: "string",
+    },
+  },
+  handler: ({ title }) => {
+    const result = notes.readNote(title);
+
+    if (!result) {
+      return console.log(chalk.red("No note found"));
+    }
   },
 });
 _.command({

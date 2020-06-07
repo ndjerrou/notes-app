@@ -60,9 +60,26 @@ const listNotes = () => {
   });
 };
 
+const readNote = (title) => {
+  const notes = loadNotes();
+
+  const note = notes.find((n) => n.title === title);
+
+  if (!note) {
+    return false;
+  }
+
+  console.log(chalk.red("Your note above :"));
+  console.log(note.title);
+  console.log(note.body);
+
+  return true;
+};
+
 module.exports = {
   getNotes,
   addNotes,
   removeNotes,
   listNotes,
+  readNote,
 };
