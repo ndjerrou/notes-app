@@ -56,7 +56,7 @@ _.command({
   command: "list",
   describe: "Displaying all current notes",
   handler: () => {
-    console.log("Listing all notes");
+    notes.listNotes();
   },
 });
 
