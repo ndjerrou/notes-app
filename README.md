@@ -4,6 +4,8 @@
 
 You have here a small tool (inline command) that you can use to store your favourites notes and to retrieve them in a fashion way directly using your command line !
 
+Consuptiom of the yargs API
+
 # Made with nodejs exclusively
 
 - Steps to use the project
